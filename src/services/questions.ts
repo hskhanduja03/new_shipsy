@@ -5,96 +5,75 @@ export const generateQuestions = async (
   subject: string,
   level: string
 ): Promise<Question[]> => {
+  const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
+  await delay(1000);
 
-  const mockQuestions: Question[] = [
+  const biologyQuestions: Question[] = [
+    /* your biology questions here */
+  ];
+
+  const physicsQuestions: Question[] = [
     {
       id: 1,
-      question: `What is the fundamental unit of life in ${subject}?`,
-      options: ["Cell", "Atom", "Molecule", "Tissue"],
+      question: "What is the speed of light in vacuum?",
+      options: ["3 × 10⁸ m/s", "1.5 × 10⁷ m/s", "1 × 10⁶ m/s", "9.8 m/s²"],
       correctAnswer: 0,
       explanation:
-        "The cell is the basic structural and functional unit of all living organisms.",
+        "Light travels in vacuum at approximately 3 × 10⁸ meters per second.",
     },
+    // more...
+  ];
+
+  const computerQuestions: Question[] = [
     {
-      id: 2,
-      question: `Which process converts light energy into chemical energy?`,
-      options: ["Respiration", "Photosynthesis", "Digestion", "Transpiration"],
-      correctAnswer: 1,
-      explanation:
-        "Photosynthesis is the process by which plants convert light energy into chemical energy.",
-    },
-    {
-      id: 3,
-      question: `What is the powerhouse of the cell?`,
-      options: ["Nucleus", "Ribosome", "Mitochondria", "Chloroplast"],
-      correctAnswer: 2,
-      explanation:
-        "Mitochondria are called the powerhouse of the cell because they produce ATP.",
-    },
-    {
-      id: 4,
-      question: `Which blood type is considered the universal donor?`,
-      options: ["A", "B", "AB", "O"],
-      correctAnswer: 3,
-      explanation:
-        "Type O blood is considered the universal donor because it lacks A and B antigens.",
-    },
-    {
-      id: 5,
-      question: `What is the process of cell division called?`,
-      options: ["Meiosis", "Mitosis", "Both A and B", "None of the above"],
-      correctAnswer: 2,
-      explanation:
-        "Both meiosis and mitosis are types of cell division with different purposes.",
-    },
-    {
-      id: 6,
-      question: `Which organ system is responsible for gas exchange?`,
-      options: ["Circulatory", "Respiratory", "Digestive", "Nervous"],
-      correctAnswer: 1,
-      explanation:
-        "The respiratory system is responsible for the exchange of oxygen and carbon dioxide.",
-    },
-    {
-      id: 7,
-      question: `What is DNA an abbreviation for?`,
+      id: 1,
+      question: "What does CPU stand for?",
       options: [
-        "Deoxyribonucleic Acid",
-        "Dinitrogen Acid",
-        "Dioxin Acid",
-        "Dehydrated Acid",
+        "Central Processing Unit",
+        "Computer Program Unit",
+        "Control Panel Unit",
+        "Central Panel Unit",
       ],
       correctAnswer: 0,
       explanation:
-        "DNA stands for Deoxyribonucleic Acid, which contains genetic instructions.",
+        "CPU stands for Central Processing Unit, the brain of the computer.",
     },
-    {
-      id: 8,
-      question: `Which process removes waste products from the body?`,
-      options: ["Digestion", "Circulation", "Excretion", "Respiration"],
-      correctAnswer: 2,
-      explanation:
-        "Excretion is the process of removing metabolic waste products from the body.",
-    },
-    {
-      id: 9,
-      question: `What is the largest organ in the human body?`,
-      options: ["Liver", "Brain", "Lungs", "Skin"],
-      correctAnswer: 3,
-      explanation:
-        "The skin is the largest organ, covering the entire surface of the body.",
-    },
-    {
-      id: 10,
-      question: `Which vitamin is produced when skin is exposed to sunlight?`,
-      options: ["Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D"],
-      correctAnswer: 3,
-      explanation:
-        "Vitamin D is synthesized in the skin when exposed to UVB radiation from sunlight.",
-    },
+    // more...
   ];
 
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  const historyQuestions: Question[] = [
+    {
+      id: 1,
+      question: "Who was the first President of the United States?",
+      options: [
+        "Abraham Lincoln",
+        "George Washington",
+        "John Adams",
+        "Thomas Jefferson",
+      ],
+      correctAnswer: 1,
+      explanation:
+        "George Washington was the first U.S. President (1789–1797).",
+    },
+    // more...
+  ];
 
-  return mockQuestions;
+  const generalKnowledgeQuestions: Question[] = [
+    /* existing */
+  ];
+  const mathQuestions: Question[] = [
+    /* your math questions */
+  ];
+
+  const questionsBySubject: Record<string, Question[]> = {
+    biology: biologyQuestions,
+    physics: physicsQuestions,
+    "computer-science": computerQuestions,
+    history: historyQuestions,
+    "general-knowledge": generalKnowledgeQuestions,
+    mathematics: mathQuestions,
+  };
+
+  return questionsBySubject[subject] || [];
 };
+

@@ -4,29 +4,53 @@ import { useNavigate } from 'react-router-dom';
 import { useQuiz } from '../context/QuizContext';
 import { BookOpen, Calculator, Globe } from 'lucide-react';
 
+import { BookOpen, Calculator, Globe, Atom, Cpu, Landmark } from "lucide-react";
+
 const subjects = [
   {
-    id: 'biology',
-    name: 'Biology',
+    id: "biology",
+    name: "Biology",
     icon: BookOpen,
-    description: 'Life sciences and living organisms',
-    color: 'from-green-400 to-emerald-600',
+    description: "Life sciences and living organisms",
+    color: "from-green-400 to-emerald-600",
   },
   {
-    id: 'mathematics',
-    name: 'Mathematics',
+    id: "mathematics",
+    name: "Mathematics",
     icon: Calculator,
-    description: 'Numbers, equations, and problem solving',
-    color: 'from-blue-400 to-indigo-600',
+    description: "Numbers, equations, and problem solving",
+    color: "from-blue-400 to-indigo-600",
   },
   {
-    id: 'general-knowledge',
-    name: 'General Knowledge',
+    id: "general-knowledge",
+    name: "General Knowledge",
     icon: Globe,
-    description: 'World facts and current affairs',
-    color: 'from-purple-400 to-pink-600',
+    description: "World facts and current affairs",
+    color: "from-purple-400 to-pink-600",
+  },
+  {
+    id: "physics",
+    name: "Physics",
+    icon: Atom,
+    description: "Matter, motion, and energy",
+    color: "from-yellow-400 to-orange-600",
+  },
+  {
+    id: "computer-science",
+    name: "Computer Science",
+    icon: Cpu,
+    description: "Programming, hardware, and theory",
+    color: "from-sky-400 to-blue-600",
+  },
+  {
+    id: "history",
+    name: "History",
+    icon: Landmark,
+    description: "Past events and civilizations",
+    color: "from-red-400 to-rose-600",
   },
 ];
+
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
